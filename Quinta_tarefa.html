@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inverter Strings</title>
+    <script>
+        function Inverter(){
+            const string = document.getElementById('string').value;
+            console.log(string);
+            stringInvertida = '';
+            for(let i= string.length -1; i>=0; i--){
+                stringInvertida += string[i];
+            }
+            const resultado = document.getElementById('resposta');
+            resultado.innerHTML = stringInvertida;
+        }
+    </script>
+</head>
+<body>
+    <h1>Vamos inverter sua cadeia de caracteres</h1>
+    <label>Digite a String:</label>
+    <input type="text" id="string">
+    <button onclick="Inverter()">Inverter</button>
+    <h2 id="resposta"></h2>
+    
+</body>
+</html>

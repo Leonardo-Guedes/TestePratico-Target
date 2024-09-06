@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fibonacci</title>
+<script>
+
+function numFibonacci(num){
+        let a=1, b=0;
+        if(num < 0) return 'Números negativos não pertencem a Fibonacci';
+        if(num === 1 || num === 0) return 'Pertence a Fibonacci';
+        while (a < num){
+            let aux = b;
+            b = a;
+            a += aux;
+        }
+        if(a === num) {
+            return 'Pertence a Fibonacci';
+        }
+        else{
+            return 'Não pertence a Fibonacci'
+        }
+
+    } 
+function Fibonacci(){
+    let num= 0, resposta = 0;
+    num = parseInt(document.getElementById('num').value);
+    answer = document.getElementById('answer');
+    resposta = numFibonacci(num); 
+    answer.innerHTML= resposta;
+   } 
+
+</script>
+</head>
+<body>
+    <h1>Vamos testar se seu número pertence a Fibonacci</h1>
+    <h3>Digite seu número:</h3>
+    <input type="number" id="num"/>
+    <button onclick="Fibonacci()">Verificar</button>
+    <h2 id="answer"></h2> 
+</body>
+</html>

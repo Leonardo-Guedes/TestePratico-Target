@@ -1,0 +1,10 @@
+let i =0, soma =0, k= 0;
+i = 13;
+while (k < i) {
+    k += 1;
+    soma += k;
+
+}
+console.log(soma);
+
+O resultado da soma ao fim da execução será 91;

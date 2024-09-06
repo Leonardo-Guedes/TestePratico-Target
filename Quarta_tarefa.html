@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Faturamento Distribuidora</title>
+    <script>
+    faturamento=[
+        {
+            "estado" : "SP",
+            "valor" : 67836.43
+        },
+        {
+            "estado" : "RJ",
+            "valor" : 36678.66 
+        },
+        {
+            "estado" : "MG",
+            "valor" : 29229.88
+        },  
+        {
+            "estado": "ES",
+            "valor": 27165.48
+        },
+        {
+            "estado": "Outros",
+            "valor": 19849.53
+        }
+
+    ]
+    var total = faturamento.reduce((acc,value)=> acc + value.valor, 0);
+    var percentual = faturamento.map(function(e){
+        return {
+            "estado": e.estado,
+            "valor": ((e.valor *100)/total).toFixed(2)
+        }
+    })
+    var SaoPaulo = percentual.filter((e)=> e.estado === 'SP');
+    var RioDeJaneiro = percentual.filter((e)=> e.estado === 'RJ');
+    var MinasGerais = percentual.filter((e)=> e.estado === 'MG');
+    let EspiritoSanto = percentual.filter((e)=> e.estado === 'ES');
+    let Outros = percentual.filter((e)=> e.estado === 'Outros');
+    function Calcular(){
+        let sp= document.getElementById('SP');
+        let rj= document.getElementById('RJ');
+        let mg= document.getElementById('MG');
+        let es= document.getElementById('ES');
+        let outros= document.getElementById('Outros');
+        console.log(SaoPaulo[0]);
+        sp.innerHTML= "A porcentagem de São Paulo foi de " + SaoPaulo[0].valor + "%";
+        rj.innerHTML= "A porcentagem de Rio de Janeiro foi de " + RioDeJaneiro[0].valor + "%";
+        mg.innerHTML= "A porcentagem de Minas Gerais foi de " + MinasGerais[0].valor + "%";
+        es.innerHTML= "A porcentagem de Espirito Santo foi de " + EspiritoSanto[0].valor + "%";
+        outros.innerHTML= "A porcentagem de Outros foi de " + Outros[0].valor + "%";
+    }
+    </script>
+</head>
+<body>
+    <h1>Calculando o percentual de cada estado no faturamento da Distribuidora</h1>
+    <button onclick="Calcular()">Calcular</button>
+    <h2 id="SP"></h2>
+    <h2 id="RJ"></h2>
+    <h2 id="MG"></h2>
+    <h2 id="ES"></h2>
+    <h2 id="Outros"></h2>
+</body>
+</html>
